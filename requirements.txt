@@ -1,0 +1,7 @@
+flask
+flask-talisman
+flask-cors
+flask-limiter
+python-dotenv
+requests
+psycopg2-binary

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ayris's Plumbing | Oklahoma City Plumbing Services</title>
+
+    <meta name="description" content="Licensed and insured plumbing repairs, installations, and 24/7 emergency service in Oklahoma City, OK. Upfront pricing, fast response, work guaranteed.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Cloudflare Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+    <style>
+        .flash-messages {
+            max-width: 700px;
+            margin: 16px auto;
+            padding: 0 20px;
+        }
+        .flash-message {
+            background: #fff4e6;
+            border: 1px solid #f0b86b;
+            color: #7a4a00;
+            padding: 14px 18px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        #booking-status.status-success {
+            color: #1a7a3c;
+            font-weight: 700;
+        }
+        #booking-status.status-error {
+            color: #b3261e;
+            font-weight: 700;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="topbar">
+
+    <div class="topbar-inner">
+
+        <span>Serving Oklahoma City &amp; Surrounding Areas</span>
+
+        <span>Available 24/7 for Emergencies</span>
+    </div>
+
+</div>
+
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Ayris's<span>Plumbing</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <a class="call-btn" href="tel:(918) 771-1331">
+
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+
+            Call Now
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for message in messages %}
+        <div class="flash-message">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-eyebrow"><span class="dot"></span> Available Now in Oklahoma City</span>
+
+        <h1>
+            Reliable Plumbing Services
+            in <em>Oklahoma City</em>
+        </h1>
+
+        <p>
+            Fast, professional and affordable plumbing solutions for homes and
+            businesses — from minor repairs to full installations, we get it
+            fixed right the first time.
+        </p>
+
+        <div class="hero-actions">
+
+            <a href="#booking" class="primary-btn">
+                Book A Service
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+
+            <a href="tel:(918) 771-1331" class="secondary-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                Call Now
+            </a>
+
+        </div>
+
+        <div class="hero-badges">
+
+            <span class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Licensed &amp; Insured
+            </span>
+
+            <span class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Upfront Pricing
+            </span>
+
+            <span class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                24/7 Emergency Response
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<div class="trust-bar-wrap">
+
+    <div class="trust-bar">
+
+        <div class="trust-card">
+
+            <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+
+            <h4>Licensed &amp; Insured</h4>
+            <p>Fully bonded for your protection</p>
+
+        </div>
+
+        <div class="trust-card">
+
+            <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+
+            <h4>24/7 Emergency Service</h4>
+            <p>We answer day and night</p>
+
+        </div>
+
+        <div class="trust-card">
+
+            <div class="icon-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 11 3.83A2 2 0 0 0 9.59 3.24L3 3v6.59a2 2 0 0 0 .59 1.41l9.58 9.59a2 2 0 0 0 2.82 0l6.59-6.59a2 2 0 0 0 0-2.82z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle></svg>
+            </div>
+
+            <h4>Upfront Pricing</h4>
+            <p>No hidden fees, ever</p>
+
+        </div>
+
+        <div class="trust-card">
+
+            <div class="icon-circle copper">
+                <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+
+            <h4>5-Star Rated</h4>
+            <p>Trusted by OKC homeowners</p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<section class="about-preview">
+
+<span class="section-eyebrow">Why Oklahoma City Trusts Us</span>
+
+<h2>
+Why Choose Ayris's Plumbing?
+</h2>
+
+<p class="section-sub">
+We provide dependable plumbing repairs, emergency services, and
+professional installations, with customer satisfaction as our priority.
+</p>
+
+
+<div class="features">
+
+
+<div>
+
+<div class="icon-circle">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+</div>
+
+<h3>Licensed Experts</h3>
+<p>
+Experienced professionals handling every plumbing problem.
+</p>
+</div>
+
+
+
+<div>
+
+<div class="icon-circle">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+</div>
+
+<h3>Fast Response</h3>
+<p>
+Quick scheduling for urgent plumbing issues.
+</p>
+</div>
+
+
+
+<div>
+
+<div class="icon-circle">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69s-6 6.32-6 10.31a6 6 0 0 0 12 0c0-4-6-10.31-6-10.31z"></path></svg>
+</div>
+
+<h3>Quality Work</h3>
+<p>
+Reliable solutions built to last.
+</p>
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<section class="process">
+
+<span class="section-eyebrow">Our Process</span>
+
+<h2>How It Works</h2>
+
+<p class="section-sub">
+No guesswork, no surprises. Here's what happens when you call Ayris's Plumbing.
+</p>
+
+<div class="process-grid">
+
+    <div class="process-step">
+        <div class="step-number">1</div>
+        <h3>Call or Book Online</h3>
+        <p>Tell us what's going on and we'll schedule a time that works for you, often the same day.</p>
+    </div>
+
+    <div class="process-step">
+        <div class="step-number">2</div>
+        <h3>We Diagnose the Issue</h3>
+        <p>A licensed technician inspects the problem on-site and gives you an upfront price before any work begins.</p>
+    </div>
+
+    <div class="process-step">
+        <div class="step-number">3</div>
+        <h3>We Fix It Right</h3>
+        <p>Quality repairs completed cleanly and backed by our workmanship guarantee.</p>
+    </div>
+
+</div>
+
+</section>
+
+
+
+<section class="services">
+
+<span class="section-eyebrow">What We Offer</span>
+
+<h2>
+Our Plumbing Services
+</h2>
+
+<p class="section-sub">
+From everyday repairs to full installations, here are a few of the jobs we handle most.
+</p>
+
+
+<div class="service-grid">
+
+
+<div class="service-card">
+
+<div class="service-card-img">
+<img src="{{ url_for('static', filename='images/drain.jpg') }}" alt="Plumber clearing a clogged drain" width="400" height="220" loading="lazy">
+</div>
+
+<h3>
+Drain Cleaning
+</h3>
+
+<p>
+Remove clogged drains and restore proper flow, fast.
+</p>
+
+<a href="#booking" class="service-cta">
+Request This Service
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+</a>
+
+</div>
+
+
+
+
+<div class="service-card">
+
+<div class="service-card-img">
+<img src="{{ url_for('static', filename='images/water-heater.jpg') }}" alt="Water heater repair and installation" width="400" height="220" loading="lazy">
+</div>
+
+<h3>
+Water Heater Repair
+</h3>
+
+<p>
+Professional water heater repair, maintenance and installation.
+</p>
+
+<a href="#booking" class="service-cta">
+Request This Service
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+</a>
+
+</div>
+
+
+
+
+<div class="service-card">
+
+<div class="service-card-img">
+<img src="{{ url_for('static', filename='images/leak.jpg') }}" alt="Leak detection and repair" width="400" height="220" loading="lazy">
+</div>
+
+<h3>
+Leak Detection
+</h3>
+
+<p>
+Find and repair hidden leaks before damage spreads.
+</p>
+
+<a href="#booking" class="service-cta">
+Request This Service
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="services-footer">
+<a href="services.html" class="outline-link">View All Services</a>
+</div>
+
+
+</section>
+
+
+
+<section class="areas">
+
+<span class="section-eyebrow">Service Area</span>
+
+<h2>Proudly Serving Oklahoma City &amp; Beyond</h2>
+
+<p class="section-sub">
+Based in Oklahoma City and on call across the surrounding metro.
+</p>
+
+<div class="areas-list">
+
+<span class="area-chip">Oklahoma City</span>
+<span class="area-chip">Edmond</span>
+<span class="area-chip">Norman</span>
+<span class="area-chip">Moore</span>
+<span class="area-chip">Yukon</span>
+<span class="area-chip">Midwest City</span>
+<span class="area-chip">Bethany</span>
+<span class="area-chip">Mustang</span>
+
+</div>
+
+</section>
+
+
+
+<div class="cta-banner">
+
+    <div class="cta-banner-inner">
+
+        <div>
+            <h3>Got a Plumbing Emergency?</h3>
+            <p>We're available around the clock — day, night, weekends and holidays.</p>
+        </div>
+
+        <a href="tel:(918) 771-1331" class="primary-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            Call Now
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<section class="reviews">
+
+<span class="section-eyebrow">Testimonials</span>
+
+<h2>
+Customer Reviews
+</h2>
+
+<p class="section-sub">
+Real feedback from homeowners across the Oklahoma City metro.
+</p>
+
+<div class="reviews-grid">
+
+
+<div class="review-box">
+
+<div class="review-stars">★★★★★</div>
+
+<p>
+"Excellent service from start to finish. They arrived quickly, explained
+the problem clearly, and fixed our issue the same day."
+</p>
+
+<div class="review-header">
+<div class="review-avatar">S</div>
+<div>
+<h4>Sarah M.</h4>
+<span>Edmond, OK</span>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="review-box">
+
+<div class="review-stars">★★★★★</div>
+
+<p>
+"Professional, courteous, and upfront about pricing. No surprises on
+the final bill — exactly what they quoted."
+</p>
+
+<div class="review-header">
+<div class="review-avatar">J</div>
+<div>
+<h4>James T.</h4>
+<span>Norman, OK</span>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="review-box">
+
+<div class="review-stars">★★★★★</div>
+
+<p>
+"Called late on a Sunday night with a burst pipe and they were at our
+door within the hour. Absolute lifesavers."
+</p>
+
+<div class="review-header">
+<div class="review-avatar">L</div>
+<div>
+<h4>Linda K.</h4>
+<span>Oklahoma City, OK</span>
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<section id="booking" class="booking">
+
+<span class="section-eyebrow">Schedule A Visit</span>
+
+<h2>
+Book Your Plumbing Service
+</h2>
+
+<p class="section-sub">
+Fill out the form below and we'll confirm your appointment.
+</p>
+
+
+<form id="booking-form" action="/book" method="POST">
+
+
+<div class="form-row">
+
+<div>
+<label>
+Full Name
+</label>
+
+<input
+type="text"
+name="name"
+required>
+</div>
+
+<div>
+<label>
+Phone Number
+</label>
+
+<input
+type="tel"
+name="phone"
+required>
+</div>
+
+</div>
+
+
+
+<label>
+Select Reservation Time
+</label>
+
+
+<select name="time" required>
+
+{% for slot in ["8:00 AM - 11:00 AM", "11:00 AM - 2:00 PM", "2:00 PM - 5:00 PM"] %}
+<option value="{{ slot }}" {% if slot in booked_times %}disabled{% endif %}>
+{{ slot }}{% if slot in booked_times %} (Fully Booked){% endif %}
+</option>
+{% endfor %}
+
+</select>
+
+
+
+
+
+<label>
+What do you need help with?
+</label>
+
+
+<select name="service" required>
+
+
+<option>
+Drain Cleaning
+</option>
+
+
+<option>
+Water Heater Repair
+</option>
+
+
+<option>
+Leak Detection
+</option>
+
+
+<option>
+Other
+</option>
+
+
+</select>
+
+
+
+
+<div class="form-coloumn">
+
+<div>
+<label>
+Address
+</label>
+
+<input
+type="text"
+name="Address"
+coloumns="3"
+required>
+</div>
+
+
+<div class="cf-turnstile" data-sitekey="0x4AAAAAADxaoFiP1EF2uSjT"></div>
+
+<button type="submit">
+
+Reserve Appointment
+
+</button>
+
+
+<p class="form-note">We'll confirm your appointment by phone within 30 minutes during business hours.</p>
+
+<p id="booking-status" class="form-note" role="status" aria-live="polite"></p>
+
+
+</form>
+
+
+
+</section>
+
+
+
+<section class="contact-preview">
+
+<span class="section-eyebrow">Get In Touch</span>
+
+<h2>
+Contact Ayris's Plumbing
+</h2>
+
+<p class="section-sub">
+Reach out any time — we're happy to answer questions or schedule a visit.
+</p>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<div class="icon-circle">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+</div>
+
+<h4>Phone</h4>
+
+<a href="tel:(918) 771-1331">
+(918) 771-1331
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="icon-circle">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>
+</div>
+
+<h4>Email</h4>
+
+<a href="mailto:arlyntottress75@gmail.com">
+arlyntottress75@gmail.com
+</a>
+
+</div>
+
+
+<div class="contact-card">
+
+<div class="icon-circle">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+</div>
+
+<h4>Working Hours</h4>
+
+<p>8:00 AM – 5:00 PM Office<br>24/7 Emergency Service</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-col footer-brand">
+
+<span class="footer-logo">Ayris's Plumbing</span>
+
+<p>Licensed, insured, and trusted by homeowners across Oklahoma City for fast, honest plumbing work.</p>
+
+<div class="social-links">
+
+<a href="#" class="social-link" aria-label="Facebook">
+<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 12a10 10 0 1 0-11.5 9.95v-7.04H7.9V12h2.6V9.8c0-2.57 1.53-3.99 3.87-3.99 1.12 0 2.3.2 2.3.2v2.53h-1.3c-1.28 0-1.68.8-1.68 1.62V12h2.86l-.46 2.91h-2.4v7.04A10 10 0 0 0 22 12z"></path></svg>
+</a>
+
+<a href="#" class="social-link" aria-label="Instagram">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle></svg>
+</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Quick Links</h4>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="reviews.html">Reviews</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Our Services</h4>
+
+<ul>
+<li><a href="#booking">Drain Cleaning</a></li>
+<li><a href="#booking">Water Heater Repair</a></li>
+<li><a href="#booking">Leak Detection</a></li>
+<li><a href="services.html">View All Services</a></li>
+</ul>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>Contact Us</h4>
+
+<ul>
+<li><a href="tel:(405)-410-3844">(405)-410-3844</a></li>
+<li><a href="mailto:arlyntottress75@gmail.com">arlyntottress75@gmail.com</a></li>
+<li>Mon–Sun: 24/7 Emergency Service</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+<p>
+© 2026 Ayris's Plumbing. All Rights Reserved. · Licensed &amp; Insured — License #OKC-PLB-00123
+</p>
+
+</div>
+
+</footer>
+
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
